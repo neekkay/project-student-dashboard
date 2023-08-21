@@ -1,0 +1,33 @@
+header {
+	display:grid;
+	background-color: green;
+	text-align: center;
+	padding: 10px;
+	color: white;
+	grid-column: span 2;
+}
+
+.app-container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+padding: 20px;
+}
+
+.student-list {
+grid-column: 2;
+grid-row: 2;
+text-align: right;
+}
+
+.student {
+	display: flex;
+	}
+.student-image {
+	width: 100px;
+	height: auto;
+}
+ .student-card {
+	border: 1px solid green;
+	padding:10px ;
+ }

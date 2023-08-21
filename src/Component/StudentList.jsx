@@ -1,5 +1,4 @@
 import React from "react";
-import Student from "./Student";
 
 export default function StudentList({student}) {
   return (
@@ -14,8 +13,8 @@ export default function StudentList({student}) {
            <p>{student.username}</p>
            <p>{student.dob}</p>
          </div>
-           <Student student={student} />
-       </div>
+         </div> 
+        
 
 
 

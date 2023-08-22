@@ -34,9 +34,18 @@ margin-bottom: 10px;
 .clickable {
 	cursor: pointer;
 	color: black;
-	text-decoration: underline;
+	font-size: large;
+	padding: 20px;
+  }
+
+  ul {
+	list-style: none;
+	justify-content: space-between;
+	padding: 0;
   }
 
    ul li {
 	list-style: none;
+	border-bottom: 1px solid green;
+	font-weight: bold;
   }

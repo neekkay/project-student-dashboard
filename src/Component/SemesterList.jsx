@@ -1,6 +1,6 @@
 import React from "react";
   
-export default function SemesterList ({handleSemesterClick, selectedSemester}) {
+ function SemesterList ({handleSemesterClick, selectedSemester}) {
 	const semesters = [
 		"Winter2026",
 		"Fall2026",
@@ -30,3 +30,4 @@ export default function SemesterList ({handleSemesterClick, selectedSemester}) {
 		</aside>
 	)
 }
+export default SemesterList;

@@ -2,9 +2,12 @@
  import studentsData from "./data/data.json";
  import StudentList from "./Component/StudentList";
  import StudentCard from "./Component/StudentCard";
- import SemesterList from "./component/SemesterList";
+import SemesterList from "./Component/SemesterList";
  import "./index.css";
 function App() {
+
+const [filteredStudent, setFilteredStudent] = useState([...studentsData]);
+
   const [selectedSemester, setSelectedSemester] = useState(null);
 
 const [SelectedCohortCode, setSelectedCohortCode] = useState(null);
@@ -17,8 +20,19 @@ const [SelectedCohortCode, setSelectedCohortCode] = useState(null);
   
   };
 
-const filteredStudents = studentsData.filter((student) => student.cohort.cohortCode === selectedSemester && student.cohort.cohort.cohortCode === setSelectedCohortCode
-);
+const filteredStudents = studentsData.filter((student) => {
+  if (selectedSemester && SelectedCohortCode) {
+    return (
+      student.cohort.cohortCode === selectedSemester && student.cohort.cohortCode === setSelectedCohortCode
+    );
+}else if (selectedSemester) {
+  return student.cohort.cohortCode === selectedSemester;
+} else{
+  return true;
+
+}
+});
+
 
   return (
     <div className="app-container">
@@ -48,12 +62,12 @@ const filteredStudents = studentsData.filter((student) => student.cohort.cohortC
       </aside>
       <div className="student-list">
       <h2>All Students:</h2>
-      {studentsData.map((student) => {
+      {filteredStudent.map((student) => {
         return <StudentList  key={student.id} student={student} />;
       })}
       <div className="student-card">
       <h2>Students Card</h2>
-      {studentsData.map((student) => {
+      {filteredStudent.map((student) => {
         return <StudentCard key={student.id} student={student} className="StudentCard" />;
         
       })}
